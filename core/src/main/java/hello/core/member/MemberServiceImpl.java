@@ -8,7 +8,7 @@ public class MemberServiceImpl implements MemberService {
     public void join(Member member) {
 
     }
-
+    //override/
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);

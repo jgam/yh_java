@@ -9,25 +9,32 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
     //implementation
+    @Bean
     public MemberService memberService(){
         //constructor injection to follow the policy
         return new MemberServiceImpl(memberRepository());
     }
 
     //roles
-    private MemberRepository memberRepository() {
+    @Bean
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
     //implementation
+    @Bean
     public OrderService orderService(){
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     //roles
+    @Bean
     public DiscountPolicy discountPolicy(){
         //rate discount policy
         return new RateDiscountPolicy();

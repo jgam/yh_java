@@ -16,6 +16,7 @@ public class OrderApp {
 //        MemberService memberService = appConfig.memberService();
 //        OrderService orderService = appConfig.orderService();
 
+        //application context is spring container and it is an interface.
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         OrderService orderService = applicationContext.getBean("orderService", OrderService.class);

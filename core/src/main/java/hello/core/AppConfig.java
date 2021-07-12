@@ -12,6 +12,8 @@ import hello.core.member.MemoryMemberRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+//APP cglib that checks if repos were created beforehand or not, this results in that using@bean guarantees the spring beans
+//howveer, it  does not guarantee the singleton pattern
 @Configuration
 public class AppConfig {
     //implementation
